@@ -12,6 +12,7 @@ Enemies behave as if they were zombies, at the beginning of the scene if they ha
 
 When an enemy dies the ragdoll physics are activated, and the player can shoot at them to move them. I hope it was clear, if you have any questions about the project you can contact me to know more about it.
 
+----------------------------------
 In the project you will find different useful things like the aiming systems of each weapon, the ragdoll physics, the shooting effects and the diferentes features of aiming and damage. The project also has a .FBX file of a manequi modeled and rigged in blender, as well as its different animations, and also the different weapons used also made in blender.
 --------------------------------------------------------
 Software: Unity version: 2020.2.1f1 Blender Version: 2.91
