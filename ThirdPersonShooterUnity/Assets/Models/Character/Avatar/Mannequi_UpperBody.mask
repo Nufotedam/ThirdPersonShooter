@@ -1,0 +1,91 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!319 &31900000
+AvatarMask:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: Mannequi_UpperBody
+  m_Mask: 00000000010000000100000000000000000000000100000001000000010000000100000000000000000000000100000001000000
+  m_Elements:
+  - m_Path: 
+    m_Weight: 1
+  - m_Path: Mannequi
+    m_Weight: 1
+  - m_Path: rig
+    m_Weight: 1
+  - m_Path: rig/root
+    m_Weight: 0
+  - m_Path: rig/root/ORG-Gun
+    m_Weight: 1
+  - m_Path: rig/root/ORG-Gun/ORG-Gun-Magazine
+    m_Weight: 1
+  - m_Path: rig/root/ORG-Gun/ORG-Gun-Reload
+    m_Weight: 1
+  - m_Path: rig/root/ORG-Gun-2
+    m_Weight: 1
+  - m_Path: rig/root/ORG-Gun-2/ORG-Gun-2-Magazine
+    m_Weight: 1
+  - m_Path: rig/root/ORG-Gun-2/ORG-Gun-2-Reload
+    m_Weight: 1
+  - m_Path: rig/root/ORG-Gun-3
+    m_Weight: 1
+  - m_Path: rig/root/ORG-Gun-3/ORG-Gun-3-Magazine
+    m_Weight: 1
+  - m_Path: rig/root/ORG-Gun-3/ORG-Gun-3-Reload
+    m_Weight: 1
+  - m_Path: rig/root/ORG-hips
+    m_Weight: 1
+  - m_Path: rig/root/ORG-hips/ORG-spine
+    m_Weight: 1
+  - m_Path: rig/root/ORG-hips/ORG-spine/ORG-chest
+    m_Weight: 1
+  - m_Path: rig/root/ORG-hips/ORG-spine/ORG-chest/ORG-neck
+    m_Weight: 1
+  - m_Path: rig/root/ORG-hips/ORG-spine/ORG-chest/ORG-neck/ORG-head
+    m_Weight: 1
+  - m_Path: rig/root/ORG-hips/ORG-spine/ORG-chest/ORG-shoulder.L
+    m_Weight: 1
+  - m_Path: rig/root/ORG-hips/ORG-spine/ORG-chest/ORG-shoulder.L/ORG-upper_arm.L
+    m_Weight: 1
+  - m_Path: rig/root/ORG-hips/ORG-spine/ORG-chest/ORG-shoulder.L/ORG-upper_arm.L/ORG-forearm.L
+    m_Weight: 1
+  - m_Path: rig/root/ORG-hips/ORG-spine/ORG-chest/ORG-shoulder.L/ORG-upper_arm.L/ORG-forearm.L/ORG-hand.L
+    m_Weight: 1
+  - m_Path: rig/root/ORG-hips/ORG-spine/ORG-chest/ORG-shoulder.L/ORG-upper_arm.L/ORG-forearm.L/ORG-hand.L/ORG-thumb.01.L
+    m_Weight: 1
+  - m_Path: rig/root/ORG-hips/ORG-spine/ORG-chest/ORG-shoulder.L/ORG-upper_arm.L/ORG-forearm.L/ORG-hand.L/ORG-thumb.01.L/ORG-thumb.02.L
+    m_Weight: 1
+  - m_Path: rig/root/ORG-hips/ORG-spine/ORG-chest/ORG-shoulder.L/ORG-upper_arm.L/ORG-forearm.L/ORG-hand.L/ORG-thumb.01.L/ORG-thumb.02.L/ORG-thumb.03.L
+    m_Weight: 1
+  - m_Path: rig/root/ORG-hips/ORG-spine/ORG-chest/ORG-shoulder.R
+    m_Weight: 1
+  - m_Path: rig/root/ORG-hips/ORG-spine/ORG-chest/ORG-shoulder.R/ORG-upper_arm.R
+    m_Weight: 1
+  - m_Path: rig/root/ORG-hips/ORG-spine/ORG-chest/ORG-shoulder.R/ORG-upper_arm.R/ORG-forearm.R
+    m_Weight: 1
+  - m_Path: rig/root/ORG-hips/ORG-spine/ORG-chest/ORG-shoulder.R/ORG-upper_arm.R/ORG-forearm.R/ORG-hand.R
+    m_Weight: 1
+  - m_Path: rig/root/ORG-hips/ORG-spine/ORG-chest/ORG-shoulder.R/ORG-upper_arm.R/ORG-forearm.R/ORG-hand.R/ORG-thumb.01.R
+    m_Weight: 1
+  - m_Path: rig/root/ORG-hips/ORG-spine/ORG-chest/ORG-shoulder.R/ORG-upper_arm.R/ORG-forearm.R/ORG-hand.R/ORG-thumb.01.R/ORG-thumb.02.R
+    m_Weight: 1
+  - m_Path: rig/root/ORG-hips/ORG-spine/ORG-chest/ORG-shoulder.R/ORG-upper_arm.R/ORG-forearm.R/ORG-hand.R/ORG-thumb.01.R/ORG-thumb.02.R/ORG-thumb.03.R
+    m_Weight: 1
+  - m_Path: rig/root/ORG-hips/ORG-thigh.L
+    m_Weight: 0
+  - m_Path: rig/root/ORG-hips/ORG-thigh.L/ORG-shin.L
+    m_Weight: 0
+  - m_Path: rig/root/ORG-hips/ORG-thigh.L/ORG-shin.L/ORG-foot.L
+    m_Weight: 0
+  - m_Path: rig/root/ORG-hips/ORG-thigh.L/ORG-shin.L/ORG-foot.L/ORG-toe.L
+    m_Weight: 0
+  - m_Path: rig/root/ORG-hips/ORG-thigh.R
+    m_Weight: 0
+  - m_Path: rig/root/ORG-hips/ORG-thigh.R/ORG-shin.R
+    m_Weight: 0
+  - m_Path: rig/root/ORG-hips/ORG-thigh.R/ORG-shin.R/ORG-foot.R
+    m_Weight: 0
+  - m_Path: rig/root/ORG-hips/ORG-thigh.R/ORG-shin.R/ORG-foot.R/ORG-toe.R
+    m_Weight: 0
