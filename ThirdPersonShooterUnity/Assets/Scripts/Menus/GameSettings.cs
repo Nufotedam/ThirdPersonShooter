@@ -3,31 +3,34 @@ using UnityEngine;
 public class GameSettings : MonoBehaviour
 {
     [HideInInspector]
-    public int enemies = 0;
-    public GameObject zombieEnemy;
+    public int enemies = 0;                     //  How many enemies will be in the scene
+    public GameObject enemy;                    //  Prefab of the enemy
 
-    public static GameSettings instance = null;
+    public static GameSettings instance = null; //  Instance of the object
 
     private void Awake()
     {
+        //  Check if this object already exists in the scene
         if (instance == null)
             instance = this;
         else if (instance != this)
             Destroy(gameObject);
-
+        //  Do not destroy the object the a new scene loaded
         DontDestroyOnLoad(gameObject);
     }
 
     public void ApplySettings()
     {
+        //  Instantiate the number of selected enemies
         for (int i = 0; i <= enemies; i++)
         {
-            Instantiate<GameObject>(zombieEnemy, Vector3.zero, Quaternion.identity);
+            Instantiate<GameObject>(enemy, Vector3.zero, Quaternion.identity);
         }
     }
 
     public void Settings(int enemiesQuantity)
     {
+        //  Changes the number of enemies
         enemies = enemiesQuantity;
     }
 }

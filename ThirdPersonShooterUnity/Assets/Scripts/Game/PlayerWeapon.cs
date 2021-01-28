@@ -2,16 +2,17 @@ using UnityEngine;
 
 public class PlayerWeapon : MonoBehaviour
 {
-    public enum weaponSlot
+    public enum weaponSlot      //  Identify every weapon
     {
         AK = 0,
         Pistol = 1,
         Shotgun = 2
     }
-    public FiringWeapon[] weapons;
+    public FiringWeapon[] weapons;      //  Weapons
 
-    public AmmoInfo ammoUIInfo;
+    public AmmoInfo ammoUIInfo;         //  UI Ammo information
 
+    //  State variables
     [HideInInspector]
     public bool isShooting;
     [HideInInspector]
@@ -21,6 +22,7 @@ public class PlayerWeapon : MonoBehaviour
     [HideInInspector]
     public bool canShoot;
 
+    //  Variables
     PlayerAiming playerAiming;
     Animator m_Animator;
     bool m_IsAK;
@@ -28,12 +30,14 @@ public class PlayerWeapon : MonoBehaviour
     bool m_IsShotgun;
     bool m_ActiveWeapon;
 
-    int indexWeapon = 0;
-    
+    int indexWeapon = 0;            //  Get the active weapon to use the different methods of the active weapon
+
     void Start()
     {
+        //  Get components
         m_Animator = GetComponent<Animator>();
         playerAiming = GetComponent<PlayerAiming>();
+        //  The player starts without any weapon active, the IU info only appears when the player has a weapon
         ammoUIInfo.gameObject.SetActive(false);
     }
 
@@ -49,20 +53,26 @@ public class PlayerWeapon : MonoBehaviour
         if (Input.GetButton("Fire"))
         {
             if (m_ActiveWeapon && !isChanging && !isReloading)
-            {                
+            {
+                //  If the player shoots and he is not doing another action, the make the aim animations
                 isShooting = true;
                 playerAiming.isAiming = true;
                 m_Animator.SetBool("IsAiming", true);
                 AmmoInfo();
                 if (canShoot)
                 {
-                    weapons[indexWeapon].StartFiring();
+                    //  The player can shoot when the aim animation has finished
+                    weapons[indexWeapon].StartFiring();     //  Firing method of the active weapon
                 }
             }
         }
+
+        //  Update the bullets simulations
         weapons[indexWeapon].BulletUpdate();
+
         if (Input.GetButtonUp("Fire"))
         {
+            //  Stop firing
             isShooting = false;
             canShoot = false;
         }
@@ -70,6 +80,7 @@ public class PlayerWeapon : MonoBehaviour
 
     public void AmmoInfo()
     {
+        //  Update the ammo information
         ammoUIInfo.AmmoUIUpdate(weapons[indexWeapon].weaponSlot.ToString(), weapons[indexWeapon].GetCurrentClip(), weapons[indexWeapon].GetCurrentAmmo());
     }
 
@@ -79,6 +90,7 @@ public class PlayerWeapon : MonoBehaviour
         {
             if (!isReloading && m_ActiveWeapon)
             {
+                //  If the player reload, then reaload the active weapon
                 weapons[indexWeapon].ReloadWeapon();
             }
         }
@@ -86,6 +98,7 @@ public class PlayerWeapon : MonoBehaviour
 
     public void Reloading()
     {
+        //  State and animation of reloading
         isReloading = true;
         m_Animator.SetBool("IsAiming", false);
         m_Animator.SetTrigger("IsReload");
@@ -93,6 +106,7 @@ public class PlayerWeapon : MonoBehaviour
 
     void ActiveWeapon()
     {
+        //  Change the weapon and get the active (AK, pistol or shotgun in this case)
         if (Input.GetKeyDown(KeyCode.Alpha1))
         {
             indexWeapon = 0;
@@ -111,7 +125,7 @@ public class PlayerWeapon : MonoBehaviour
             WeaponEquipped(weapons[indexWeapon]);
             AmmoInfo();
         }
-
+        //  Set the different animation in the animator to what the weapon is active
         m_Animator.SetBool("AK", m_IsAK);
         m_Animator.SetBool("Pistol", m_IsPistol);
         m_Animator.SetBool("Shotgun", m_IsShotgun);
@@ -119,7 +133,8 @@ public class PlayerWeapon : MonoBehaviour
 
     void ChangingWeapon(bool weaponA, bool weaponB)
     {
-        if(weaponA || weaponB)
+        //  Control when the player is changing a weapon to another
+        if (weaponA || weaponB)
         {
             isChanging = true;
         }
@@ -127,6 +142,7 @@ public class PlayerWeapon : MonoBehaviour
 
     void WeaponEquipped(FiringWeapon weapon)
     {
+        //  For each weapon compare the weaponslot and identify which weapon is active
         if (weapon.weaponSlot.Equals(weaponSlot.AK))
         {
             ChangingWeapon(m_IsPistol, m_IsShotgun);
@@ -135,12 +151,14 @@ public class PlayerWeapon : MonoBehaviour
 
             if (!m_IsAK)
             {
+                //  Equip the weapon
                 m_IsAK = true;
                 m_ActiveWeapon = true;
                 ammoUIInfo.gameObject.SetActive(true);
             }
             else
             {
+                //  Unequip the weapon
                 m_IsAK = false;
                 m_ActiveWeapon = false;
                 ammoUIInfo.gameObject.SetActive(false);
@@ -154,12 +172,14 @@ public class PlayerWeapon : MonoBehaviour
 
             if (!m_IsPistol)
             {
+                //  Equip the weapon
                 m_IsPistol = true;
                 m_ActiveWeapon = true;
                 ammoUIInfo.gameObject.SetActive(true);
             }
             else
             {
+                //  Unequip the weapon
                 m_IsPistol = false;
                 m_ActiveWeapon = false;
                 ammoUIInfo.gameObject.SetActive(false);
@@ -173,12 +193,14 @@ public class PlayerWeapon : MonoBehaviour
 
             if (!m_IsShotgun)
             {
+                //  Equip the weapon
                 m_IsShotgun = true;
                 m_ActiveWeapon = true;
                 ammoUIInfo.gameObject.SetActive(true);
             }
             else
             {
+                //  Unequip the weapon
                 m_IsShotgun = false;
                 m_ActiveWeapon = false;
                 ammoUIInfo.gameObject.SetActive(false);

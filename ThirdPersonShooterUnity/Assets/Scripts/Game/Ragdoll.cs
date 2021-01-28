@@ -43,9 +43,7 @@ public class Ragdoll : MonoBehaviour
 
     public void ApplyForce(Vector3 force)
     {
-        /*
-         *  Apply force to the ragdoll when the enemy is dead
-         * */
+        //  Apply force to the ragdoll when the enemy is dead
         var rigibody = hipsBone.GetComponent<Rigidbody>();
         rigibody.AddForce(force, ForceMode.VelocityChange);
     }

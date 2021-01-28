@@ -32805,10 +32805,10 @@ GameObject:
   - component: {fileID: 2773557137558960696}
   - component: {fileID: 2773557137558960703}
   - component: {fileID: 2773557137558960701}
-  - component: {fileID: 2773557137558960698}
-  - component: {fileID: 2773557137558960699}
   - component: {fileID: 2773557137558960697}
   - component: {fileID: 2773557137558960678}
+  - component: {fileID: 2773557137558960698}
+  - component: {fileID: 2773557137558960699}
   m_Layer: 3
   m_Name: Player
   m_TagString: Player
@@ -32958,6 +32958,45 @@ MonoBehaviour:
       m_LegacyHeadingDefinition: 0
       m_LegacyVelocityFilterStrength: 0
   isAiming: 0
+--- !u!114 &2773557137558960697
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3079563107140257633}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3e53551df3a81a64081fce9b58010578, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  weapons:
+  - {fileID: 2773557137964976890}
+  - {fileID: 2773557138514415184}
+  - {fileID: 2773557137360365824}
+  ammoUIInfo: {fileID: 0}
+  isShooting: 0
+  isReloading: 0
+  isChanging: 0
+  canShoot: 0
+--- !u!114 &2773557137558960678
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3079563107140257633}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e49a9dcda4241da488171ea02501fd12, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  health: 100
+  timeDamageReset: 2
+  damageEffectIntesity: 3
+  damageEffectDuration: 0.1
+  healthInfo: {fileID: 0}
+  playerDead: 0
 --- !u!114 &2773557137558960698
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -33050,43 +33089,6 @@ MonoBehaviour:
   - {fileID: 2670986960139140840}
   - {fileID: 9070920367323400794}
   - {fileID: 455947010226837937}
---- !u!114 &2773557137558960697
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3079563107140257633}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3e53551df3a81a64081fce9b58010578, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  weapons:
-  - {fileID: 2773557137964976890}
-  - {fileID: 2773557138514415184}
-  - {fileID: 2773557137360365824}
-  ammoUIInfo: {fileID: 0}
-  isShooting: 0
-  isReloading: 0
-  isChanging: 0
---- !u!114 &2773557137558960678
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3079563107140257633}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e49a9dcda4241da488171ea02501fd12, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  health: 100
-  timeDamageReset: 2
-  damageEffectIntesity: 3
-  damageEffectDuration: 0.1
-  playerDead: 0
 --- !u!1 &3362189786609057544
 GameObject:
   m_ObjectHideFlags: 0

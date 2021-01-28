@@ -9,7 +9,7 @@ public class EnemyHealth : MonoBehaviour
     public float forceDie = 5.0f;                   //  Force applies to the ragdoll when the enemy is dead
 
     [HideInInspector]
-    public bool isDeath = false;
+    public bool isDeath = false;    //  Control if the enemy is dead
 
     Ragdoll m_Ragdoll;              //  Ragdoll component
     float currentHealth;            //  Current health of the enemy
@@ -19,62 +19,64 @@ public class EnemyHealth : MonoBehaviour
     SkinnedMeshRenderer m_Mannequin;    //  Mesh of the object
     Color m_Color;                      //  Default color of the object, it's required to make the damage effect
 
-    EnemyMovement m_EnemyMovement;
+    EnemyMovement m_EnemyMovement;      //  Movement  component of the enemy
 
     private void Start()
     {
-        m_Ragdoll = GetComponent<Ragdoll>();                            //  Get the Ragdoll component
-        m_Mannequin = GetComponentInChildren<SkinnedMeshRenderer>();    //  Get the SkinnedMeshRenderer componet
+        //  Get components
+        m_Ragdoll = GetComponent<Ragdoll>();
+        m_Mannequin = GetComponentInChildren<SkinnedMeshRenderer>();
         m_EnemyMovement = GetComponent<EnemyMovement>();
         //  Initialize variables
         currentHealth = health;
         intensity = damageEffectIntesity;
         m_Color = m_Mannequin.material.color;
 
-        var rigibodies = GetComponentsInChildren<Rigidbody>();          //  Get all the Rigibodies of the object
-        foreach(var body in rigibodies)
+        //  Get all the Rigibodies of the object
+        var rigibodies = GetComponentsInChildren<Rigidbody>();
+        foreach (var body in rigibodies)
         {
             // The hit damage component is assigned to each Rigibody in the bones.
             HitDamage hitDamage = body.gameObject.AddComponent<HitDamage>();
-            hitDamage.health = this;        //  Assign the health component to the Hit component
+            //  Assign the health component to the Hit component
+            hitDamage.health = this;
         }
     }
 
     private void Update()
     {
         //  If the enemy get damage apply the damage effect
-        if(m_DamageEffectTimer > 0)
+        if (m_DamageEffectTimer > 0)
         {
             m_DamageEffectTimer -= Time.deltaTime;
-            m_Mannequin.material.color *= intensity;        //  Change the brightness of the mesh material
+            //  Change the brightness of the mesh material
+            m_Mannequin.material.color *= intensity;
         }
         else
         {
-            m_Mannequin.material.color = m_Color;           //  Restart the color of the mesh material
+            //  Restart the color of the mesh material
+            m_Mannequin.material.color = m_Color;
         }
     }
 
     public void TakeDamage(float damage, Vector3 direction)
     {
-        /*
-         *  Apply the damage to the health of the enemy
-         * */
+        //  Apply the damage to the health of the enemy
         currentHealth -= damage;
-        if(currentHealth <= 0)
+        if (currentHealth <= 0)
         {
             Death(direction);
         }
         m_DamageEffectTimer = damageEffectDuration;
 
+        //  When the player shoots to the enemy, the enemy will chase him
         if (!m_EnemyMovement.playerInRange)
             m_EnemyMovement.playerInRange = true;
     }
 
     void Death(Vector3 forceDirection)
     {
-        /*  
-         *  Go to ragdoll state when the enemy dies
-         * */
+        //  Go to ragdoll state when the enemy dies
         isDeath = true;
         m_Ragdoll.ActivateRagdoll();
         forceDirection.y = 1;
