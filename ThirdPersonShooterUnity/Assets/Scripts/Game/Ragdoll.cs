@@ -3,6 +3,7 @@ using UnityEngine;
 public class Ragdoll : MonoBehaviour
 {
     public Transform hipsBone;          //  Get the Hips bone to be able to apply physics when the enemy is dead
+    public SkinnedMeshRenderer mannequin;
 
     Rigidbody[] m_Rigidbodies;          //  Get the all rigibodies of the bone hierachy (Ragdoll)
     Animator m_Animator;                //  Animator component
@@ -26,6 +27,8 @@ public class Ragdoll : MonoBehaviour
             rigibody.isKinematic = false;
         }
         m_Animator.enabled = false;
+        //  Activate that the mesh also renders when it is off screen
+        mannequin.updateWhenOffscreen = true;
     }
 
     public void DeactivateRagdoll()

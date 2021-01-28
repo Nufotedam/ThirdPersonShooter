@@ -457,7 +457,7 @@ GameObject:
   - component: {fileID: 1481253255431800456}
   - component: {fileID: 1481253255431800457}
   m_Layer: 6
-  m_Name: Zombie
+  m_Name: Enemy
   m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -576,6 +576,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hipsBone: {fileID: 2664742993417421189}
+  mannequin: {fileID: 2410260499099452935}
 --- !u!114 &1481253255431800457
 MonoBehaviour:
   m_ObjectHideFlags: 0
